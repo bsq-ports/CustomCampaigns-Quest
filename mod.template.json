@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Lauriethefish/QuestPatcher.QMod/main/QuestPatcher.QMod/Resources/qmod.schema.json",
+  "_QPVersion": "0.1.1",
+  "name": "SongCore",
+  "id": "songcore",
+  "author": "Raine & RedBrumbler",
+  "version": "${version}",
+  "packageId": "com.beatgames.beatsaber",
+  "packageVersion": "1.35.0_8016709773",
+  "coverImage": "cover.jpg",
+  "description": "Adds songloading, map requirement handling and related utilities to the game.",
+  "dependencies": [],
+  "lateModFiles": [
+    "${binary}"
+  ],
+  "libraryFiles": [],
+  "fileCopies": []
+}
