@@ -1,5 +1,6 @@
 #include "../shared/_config.h"
-#include "UI/MenuButton.hpp"
+#include "UI/CampaignSelectionFlowCoordinator.hpp"
+#include "UI/ViewControllers/CampaignSelectionViewController.hpp"
 #include "main.hpp"
 #include "logging.hpp"
 
@@ -7,7 +8,8 @@
 
 #include "lapiz/shared/zenject/Zenjector.hpp"
 #include "lapiz/shared/zenject/Location.hpp"
-#include "zenject/ScopeConcreteIdArgConditionCopyNonLazyBinder.hpp"
+#include "lapiz/shared/utilities/ZenjectExtensions.hpp"
+#include "Zenject/ScopeConcreteIdArgConditionCopyNonLazyBinder.hpp"
 
 #include "bsml/shared/BSML.hpp"
 
@@ -35,11 +37,13 @@ CUSTOMCAMPAIGNS_EXPORT_FUNC void late_load() {
     });
 
     z->Install(Lapiz::Zenject::Location::Menu, [](::Zenject::DiContainer* container) {
-        container->BindInterfacesAndSelfTo<CustomCampaigns::UI::MenuButton*>()->AsSingle()->NonLazy();
+        Lapiz::Zenject::ZenjectExtensions::FromNewComponentAsViewController(container->BindInterfacesAndSelfTo<CustomCampaigns::UI::ViewControllers::CampaignSelectionViewController*>())->AsSingle();
+        Lapiz::Zenject::ZenjectExtensions::FromNewComponentOnNewGameObject(container->BindInterfacesAndSelfTo<CustomCampaigns::UI::CampaignSelectionFlowCoordinator*>())->AsSingle();
     });
 
     z->Install(Lapiz::Zenject::Location::GameCore, [](::Zenject::DiContainer* container) {
 
     });
+
+    INFO("All tasks completed!");
 }
-s

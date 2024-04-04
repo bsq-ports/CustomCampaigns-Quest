@@ -1,5 +1,6 @@
 #include "UI/CampaignSelectionFlowCoordinator.hpp"
 #include "BSML/shared/BSML.hpp"
+#include "UI/ViewControllers/CampaignSelectionViewController.hpp"
 
 DEFINE_TYPE(CustomCampaigns::UI, CampaignSelectionFlowCoordinator);
 
@@ -9,12 +10,18 @@ namespace CustomCampaigns::UI {
         HMUI::FlowCoordinator::_ctor();
     }
 
+    void CampaignSelectionFlowCoordinator::Inject(GlobalNamespace::MainFlowCoordinator* baseFlow, ViewControllers::CampaignSelectionViewController* campaignSelection) {
+        _baseFlow = baseFlow;
+        _campaignSelection = campaignSelection;
+    }
+
     void CampaignSelectionFlowCoordinator::Initialize() {
         _menuButton = BSML::Register::RegisterMenuButton("Custom Campaigns", "Now on Quest!", std::bind(&CampaignSelectionFlowCoordinator::Present, this));
     }
 
     void CampaignSelectionFlowCoordinator::Dispose() {
         BSML::Register::RegisterMenuButton(_menuButton);
+        _baseFlow->_providedMainViewController = nullptr;
     }
 
     void CampaignSelectionFlowCoordinator::Present() {
@@ -29,7 +36,7 @@ namespace CustomCampaigns::UI {
     void CampaignSelectionFlowCoordinator::DidActivate(bool firstActivation, bool addedToHierarchy, bool screenSystemEnabling) {
         if (firstActivation) {
             SetTitle("Custom Campaigns", HMUI::ViewController::AnimationType::In);
-            ProvideInitialViewControllers(nullptr /*Campaign Selection view*/, nullptr /* Settings/Related things */, nullptr, nullptr, nullptr);
+            ProvideInitialViewControllers(_campaignSelection, nullptr, nullptr, nullptr, nullptr);
             showBackButton = true;
         }
     }

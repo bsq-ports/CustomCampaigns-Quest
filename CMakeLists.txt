@@ -1,5 +1,6 @@
 # include some defines automatically made by qpm
 include(qpm_defines.cmake)
+include(${EXTERN_DIR}/includes/kaleb/shared/cmake/assets.cmake)
 
 # override mod id
 set(MOD_ID "CustomCampaigns")
@@ -49,6 +50,8 @@ add_library(
         ${inline_hook_cpp}
 )
 
+add_assets(assets_${COMPILE_ID} STATIC ${CMAKE_CURRENT_LIST_DIR}/assets ${INCLUDE_DIR}/assets.hpp)
+
 target_include_directories(${COMPILE_ID} PRIVATE .)
 
 # add src dir as include dir
@@ -62,6 +65,8 @@ target_include_directories(${COMPILE_ID} PRIVATE ${EXTERN_DIR}/includes/${CODEGE
 
 
 target_link_libraries(${COMPILE_ID} PRIVATE -llog)
+target_link_libraries(${COMPILE_ID} PRIVATE assets_${COMPILE_ID})
+
 # add extern stuff like libs and other includes
 include(extern.cmake)
 

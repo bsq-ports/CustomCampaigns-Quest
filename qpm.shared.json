@@ -52,6 +52,11 @@
         "additionalData": {
           "includeQmod": false
         }
+      },
+      {
+        "id": "kaleb",
+        "versionRange": "^0.1.9",
+        "additionalData": {}
       }
     ],
     "workspace": {
@@ -124,25 +129,6 @@
     },
     {
       "dependency": {
-        "id": "fmt",
-        "versionRange": "=10.0.0",
-        "additionalData": {
-          "headersOnly": true,
-          "branchName": "version/v10_0_0",
-          "compileOptions": {
-            "systemIncludes": [
-              "fmt/include/"
-            ],
-            "cppFlags": [
-              "-DFMT_HEADER_ONLY"
-            ]
-          }
-        }
-      },
-      "version": "10.0.0"
-    },
-    {
-      "dependency": {
         "id": "custom-types",
         "versionRange": "=0.17.6",
         "additionalData": {
@@ -171,6 +157,23 @@
         }
       },
       "version": "0.1.40"
+    },
+    {
+      "dependency": {
+        "id": "kaleb",
+        "versionRange": "=0.1.9",
+        "additionalData": {
+          "headersOnly": true,
+          "branchName": "version/v0_1_9",
+          "compileOptions": {
+            "cppFlags": [
+              "-DKALEB_VERSION=\"0.1.9\""
+            ]
+          },
+          "cmake": false
+        }
+      },
+      "version": "0.1.9"
     },
     {
       "dependency": {
@@ -225,16 +228,22 @@
     },
     {
       "dependency": {
-        "id": "scotland2",
-        "versionRange": "=0.1.4",
+        "id": "fmt",
+        "versionRange": "=10.0.0",
         "additionalData": {
-          "soLink": "https://github.com/sc2ad/scotland2/releases/download/v0.1.4/libsl2.so",
-          "debugSoLink": "https://github.com/sc2ad/scotland2/releases/download/v0.1.4/debug_libsl2.so",
-          "overrideSoName": "libsl2.so",
-          "branchName": "version/v0_1_4"
+          "headersOnly": true,
+          "branchName": "version/v10_0_0",
+          "compileOptions": {
+            "systemIncludes": [
+              "fmt/include/"
+            ],
+            "cppFlags": [
+              "-DFMT_HEADER_ONLY"
+            ]
+          }
         }
       },
-      "version": "0.1.4"
+      "version": "10.0.0"
     },
     {
       "dependency": {
@@ -250,6 +259,19 @@
         }
       },
       "version": "10.0.0"
+    },
+    {
+      "dependency": {
+        "id": "scotland2",
+        "versionRange": "=0.1.4",
+        "additionalData": {
+          "soLink": "https://github.com/sc2ad/scotland2/releases/download/v0.1.4/libsl2.so",
+          "debugSoLink": "https://github.com/sc2ad/scotland2/releases/download/v0.1.4/debug_libsl2.so",
+          "overrideSoName": "libsl2.so",
+          "branchName": "version/v0_1_4"
+        }
+      },
+      "version": "0.1.4"
     }
   ]
 }

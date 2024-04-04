@@ -13,9 +13,9 @@ if (-not ($LastExitCode -eq 0)) {
 }
 
 if ($debug.IsPresent) {
-    & adb push build/debug/libsongcore.so /sdcard/ModData/com.beatgames.beatsaber/Modloader/mods/libsongcore.so
+    & adb push build/debug/libcustomcampaigns.so /sdcard/ModData/com.beatgames.beatsaber/Modloader/mods/libcustomcampaigns.so
 } else {
-    & adb push build/libsongcore.so /sdcard/ModData/com.beatgames.beatsaber/Modloader/mods/libsongcore.so
+    & adb push build/libcustomcampaigns.so /sdcard/ModData/com.beatgames.beatsaber/Modloader/mods/libcustomcampaigns.so
 }
 
 & adb shell am force-stop com.beatgames.beatsaber

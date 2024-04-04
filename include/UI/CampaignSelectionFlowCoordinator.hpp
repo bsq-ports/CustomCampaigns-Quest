@@ -1,12 +1,13 @@
 #pragma once
 
+#include "UI/ViewControllers/CampaignSelectionViewController.hpp"
 #include "custom-types/shared/macros.hpp"
 #include "bsml/shared/BSML/MenuButtons/MenuButton.hpp"
 
 #include "lapiz/shared/macros.hpp"
 
 #include "Zenject/IInitializable.hpp"
-#include "system/IDisposable.hpp"
+#include "System/IDisposable.hpp"
 
 #include "HMUI/FlowCoordinator.hpp"
 #include "GlobalNamespace/MainFlowCoordinator.hpp"
@@ -17,8 +18,9 @@ DECLARE_CLASS_CODEGEN_INTERFACES(CustomCampaigns::UI, CampaignSelectionFlowCoord
 
     DECLARE_INSTANCE_FIELD_PRIVATE(BSML::MenuButton*, _menuButton);
     DECLARE_INSTANCE_FIELD_PRIVATE(GlobalNamespace::MainFlowCoordinator*, _baseFlow);
+    DECLARE_INSTANCE_FIELD_PRIVATE(ViewControllers::CampaignSelectionViewController*, _campaignSelection);
 
-    DECLARE_INJECT_METHOD(void, Inject, GlobalNamespace::MainFlowCoordinator* baseFlow);
+    DECLARE_INJECT_METHOD(void, Inject, GlobalNamespace::MainFlowCoordinator* baseFlow, ViewControllers::CampaignSelectionViewController* campaignSelection);
 
     DECLARE_OVERRIDE_METHOD_MATCH(void, Initialize, &Zenject::IInitializable::Initialize);
     DECLARE_OVERRIDE_METHOD_MATCH(void, Dispose, &System::IDisposable::Dispose);

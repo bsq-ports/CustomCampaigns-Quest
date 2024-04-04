@@ -1,0 +1,6 @@
+<horizontal xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='https://raw.githubusercontent.com/RedBrumbler/Quest-BSML-Docs/gh-pages/schema.xsd'>
+    <vertical pref-height="60" pref-width="80" pad="2">
+        <list />
+        <text text="hi, this is from bsml :3"/>
+    </vertical>
+</horizontal>
